@@ -1,0 +1,38 @@
+{
+  "landing": {
+    "summary": "As a great enthusiast of computer science since high school, I knew from the start that I wanted to make it my profession. Daily challenges in this field inspire me to continuously improve my skills.",
+    "greeting": "Hello",
+    "iam": "I'm a",
+    "skill1": "JavaScript Developer",
+    "skill2": "Tech Enthousiast",
+    "skill3": "DevOps Apprentice",
+    "downloadResume": "Download my resume"
+  },
+  "aboutMe": {
+    "title": "About me",
+    "biography": "I am a JavaScript developer based in Antananarivo, with 5 years of experience in the tech industry. I started my journey as an intern Android developer at etech Consulting, where I discovered my passion for JavaScript development.",
+    "favouriteStacks": "My prefered stack",
+    "otherStacks": "I can also work with these frameworks and tools"
+  },
+  "project": {
+    "title": "Projects",
+    "bsa-title": "Health provider search engine",
+    "bsa-description": "A search engine for health providers on BSA's network. It allows users to search for health providers by name, specialty, location, and more.",
+    "chat-title": "Chat GPT clone",
+    "chat-description": "Ask questions and chat GPT API will give you answers. It's a clone of the famous ChatGPT"
+  },
+  "contact": {
+    "title": "Contact",
+    "fullNameLabel": "Full Name",
+    "fullNamePlaceholder": "Full Name",
+    "emailLabel": "Email address",
+    "emailPlaceholder": "address@example.com",
+    "messageLabel": "Message",
+    "messagePlaceholder": "Write your message here",
+    "sendButton": "Send message"
+  },
+  "blog": {
+    "title": "Blog",
+    "readMore": "Read more"
+  }
+}
