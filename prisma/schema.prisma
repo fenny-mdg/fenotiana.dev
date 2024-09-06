@@ -1,0 +1,71 @@
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+model Contact {
+  id        String   @id @default(cuid())
+  fullname  String
+  email     String
+  message   String
+  seen      Boolean? @default(false)
+  replied   Boolean? @default(false)
+  createdAt DateTime @default(now())
+}
+
+model Role {
+  id   String @id @unique @default(cuid())
+  name String @unique
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  users       User[]
+  permissions Permission[]
+}
+
+model Permission {
+  id          String   @id @default(cuid())
+  action      String // e.g. create, read, update, delete
+  entity      String // e.g. task, user, etc.
+  access      String // e.g. own or any
+  description String   @default("")
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+  roles       Role[]
+
+  @@unique([action, entity, access])
+}
+
+model User {
+  id                String    @id @unique @default(cuid())
+  email             String    @unique
+  username          String    @unique
+  name              String?
+  verifiedAt        DateTime?
+  verificationToken String?
+  createdAt         DateTime  @default(now())
+  updatedAt         DateTime  @updatedAt
+  password          Password?
+  roles             Role[]
+  session           Session[]
+}
+
+model Password {
+  hash String
+
+  user   User   @relation(fields: [userId], references: [id], onDelete: Cascade, onUpdate: Cascade)
+  userId String @unique
+}
+
+model Session {
+  id             String   @id @default(cuid())
+  createdAt      DateTime @default(now())
+  user           User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  userId         String
+  expirationDate DateTime
+}

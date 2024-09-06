@@ -1,0 +1,38 @@
+{
+  "landing": {
+    "summary": "Ayant développé une grande passion pour l'informatique dès mes années au lycée, j'ai su dès le départ que je voulais en faire mon métier. Les défis quotidiens dans ce domaine m'inspirent à améliorer continuellement mes compétences.",
+    "greeting": "Bonjour",
+    "iam": "Je suis",
+    "skill1": "Développeur JavaScript",
+    "skill2": "Passionné de tech",
+    "skill3": "Apprenti DevOps",
+    "downloadResume": "Télécharger mon CV"
+  },
+  "aboutMe": {
+    "title": "A propos",
+    "biography": "Je suis un développeur JavaScript basé à Antananarivo, avec 5 ans d'expérience dans l'industrie du tech. J'ai commencé mon parcours en tant que stagiaire développeur Android chez etech Consulting, où j'ai découvert ma passion pour le développement JavaScript. ",
+    "favouriteStacks": "Mes technos préférées",
+    "otherStacks": "Les autres outils & framework que j'utilise"
+  },
+  "project": {
+    "title": "Projets",
+    "bsa-title": "Moteur de recherche BSA",
+    "bsa-description": "Moteur de recherche pour les professionnels de la santé dans le réseau BSA. Cet outil permet aux utilisateurs de rechercher des professionnels de la santé à partir de: nom, spécialité, lieu, etc.",
+    "chat-title": "Chat GPT clone",
+    "chat-description": "Posez des questions et l'API OpenAI vous donnera des réponses. C’est une copie du célèbre ChatGPT."
+  },
+  "contact": {
+    "title": "Contact",
+    "fullNameLabel": "Nom complet",
+    "fullNamePlaceholder": "Nom complet",
+    "emailLabel": "Adresse email",
+    "emailPlaceholder": "address@example.com",
+    "messageLabel": "Message",
+    "messagePlaceholder": "Votre message ici ",
+    "sendButton": "Envoyer"
+  },
+  "blog": {
+    "title": "Blog",
+    "readMore": "Lire la suite"
+  }
+}
