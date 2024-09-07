@@ -1,12 +1,7 @@
 import {Link} from '@remix-run/react';
 import {clsx} from 'clsx';
-// import { getImageBuilder, getImgProps } from "~/images.tsx";
+
 import {type MdxListItem, type Team} from '~/utils/types.ts';
-// import {getBannerAltProp, getBannerTitleProp} from '~/utils/mdx.tsx';
-// import { useRootData } from "~/utils/use-root-data.ts";
-// import { BlurrableImage } from "./blurrable-image.tsx";
-// import { ClipboardCopyButton } from "./clipboard-copy-button.tsx";
-// import { MissingSomething } from "./kifs.tsx";
 import {H3} from './typography.tsx';
 
 function ArticleCard({
@@ -15,8 +10,7 @@ function ArticleCard({
     readTime,
     dateDisplay,
     slug,
-    frontmatter,
-    frontmatter: {title = 'Untitled Post', bannerBlurDataUrl},
+    frontmatter: {title = 'Untitled Post'},
   },
 }: {
   article: MdxListItem;

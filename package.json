@@ -8,7 +8,8 @@
     "build": "remix vite:build",
     "start": "cross-env NODE_ENV=production tsx ./server/index.ts",
     "lint": "eslint --cache --cache-location ./node_modules/.cache/eslint .",
-    "typecheck": "tsc"
+    "typecheck": "tsc",
+    "validate": "npm run typecheck && npm run lint"
   },
   "eslintIgnore": [
     "/node_modules",

@@ -88,8 +88,7 @@ export default function Index() {
         <Select
           options={languageOptions}
           defaultSelected={mapLanguage(i18n.language)}
-          // onChange={handleLanguageChange}
-          onChange={() => console.log('Language change')}
+          onChange={handleLanguageChange}
         />
       </nav>
       <div className="col-span-6 flex h-screen flex-col justify-center overflow-x-hidden overflow-y-scroll bg-white px-8 dark:bg-slate-800 lg:col-span-2 lg:h-full lg:rounded-lg lg:shadow-lg">

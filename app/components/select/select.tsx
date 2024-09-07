@@ -1,15 +1,15 @@
-import { Fragment, useState } from "react";
-import { Listbox, Transition } from "@headlessui/react";
-import { CheckIcon, ChevronUpDownIcon } from "@heroicons/react/20/solid";
-import clsx from "clsx";
+import {Fragment, useState} from 'react';
+import {Listbox, Transition} from '@headlessui/react';
+import {CheckIcon, ChevronUpDownIcon} from '@heroicons/react/20/solid';
+import clsx from 'clsx';
 
-import type { SelectProps } from "./common";
+import type {SelectProps} from './common';
 
 export default function Select({
   label,
   options,
   defaultSelected,
-  onChange = (value) => {},
+  onChange = () => {},
 }: SelectProps) {
   const [selected, setSelected] = useState(defaultSelected);
 
@@ -20,9 +20,9 @@ export default function Select({
 
   return (
     <Listbox value={selected} onChange={handleChange}>
-      {({ open }) => {
+      {({open}) => {
         const selectedOption = options?.find(
-          (option) => option.value === selected
+          option => option.value === selected,
         );
 
         return (
@@ -56,26 +56,26 @@ export default function Select({
                 leaveTo="opacity-0"
               >
                 <Listbox.Options className="absolute z-10 mt-1 max-h-56 w-full overflow-auto rounded-md bg-inherit bg-white py-1 text-base shadow-lg ring-1 ring-gray-200 ring-opacity-100 focus:outline-none dark:bg-slate-800 dark:ring-gray-700 sm:text-sm">
-                  {options?.map((option) => (
+                  {options?.map(option => (
                     <Listbox.Option
                       key={option.value}
-                      className={({ active }) =>
+                      className={({active}) =>
                         clsx(
-                          active ? "bg-indigo-600 text-white" : "text-gray-900",
-                          "relative cursor-default select-none py-2 pl-3 pr-9"
+                          active ? 'bg-indigo-600 text-white' : 'text-gray-900',
+                          'relative cursor-default select-none py-2 pl-3 pr-9',
                         )
                       }
                       value={option.value}
                     >
-                      {({ selected, active }) => (
+                      {({selected, active}) => (
                         <>
                           <div className="flex items-center">
                             {option.icon}
                             {option?.label ? (
                               <span
                                 className={clsx(
-                                  selected ? "font-semibold" : "font-normal",
-                                  "ml-3 block truncate"
+                                  selected ? 'font-semibold' : 'font-normal',
+                                  'ml-3 block truncate',
                                 )}
                               >
                                 {option.label}
@@ -86,8 +86,8 @@ export default function Select({
                           {selected ? (
                             <span
                               className={clsx(
-                                active ? "text-white" : "text-indigo-600",
-                                "absolute inset-y-0 right-0 flex items-center pr-4"
+                                active ? 'text-white' : 'text-indigo-600',
+                                'absolute inset-y-0 right-0 flex items-center pr-4',
                               )}
                             >
                               <CheckIcon

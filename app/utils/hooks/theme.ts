@@ -7,7 +7,7 @@ const useTheme: () => [Theme, Dispatch<SetStateAction<Theme>>] = () => {
   const [theme, setTheme] = useState<Theme>(null);
 
   useEffect(() => {
-    let currentTheme: Theme = theme || localStorage.theme || "light";
+    const currentTheme: Theme = theme || localStorage.theme || "light";
     if (
       currentTheme === "dark" ||
       (!theme && window.matchMedia("(prefers-color-scheme: dark)").matches)
