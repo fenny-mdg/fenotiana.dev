@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 type ProjectCardProps = {
   title: string;
   description: string;
@@ -22,13 +23,11 @@ export default function ProjectCard({
 
   return (
     <Wrapper className="group relative max-w-[20rem] rounded-lg bg-inherit shadow-lg dark:border dark:border-slate-700/50">
-      {preview && (
-        <img
+      {preview ? <img
           src={preview}
           alt="preview"
           className="max-h-52 w-full rounded-t-lg object-cover"
-        />
-      )}
+        /> : null}
       <span className=" flex flex-col gap-4 p-4">
         <h3 className="text-lg font-medium">{title}</h3>
         <p className="text-xs font-light">{description}</p>

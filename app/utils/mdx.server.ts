@@ -1,4 +1,3 @@
-// import { buildImageUrl } from "cloudinary-build-url";
 import {type GitHubFile, type MdxPage} from '~/utils/types.ts';
 import {compileMdx} from './compile-mdx.server.ts';
 import {downloadDirList, downloadMdxFileOrDirectory} from './github.server.ts';
@@ -149,6 +148,7 @@ export async function getBlogMdxListItems(options: CachifiedOptions) {
         return aTime > zTime ? -1 : aTime === zTime ? 0 : 1;
       });
 
+      // eslint-disable-next-line @typescript-eslint/no-unused-vars
       return pages.map(({code, ...rest}) => rest);
     },
   });
@@ -273,29 +273,4 @@ async function compileMdxCached({
     void cache.delete(key);
   }
   return page;
-}
-
-// async function getBlurDataUrl(cloudinaryId: string) {
-//   const imageURL = buildImageUrl(cloudinaryId, {
-//     transformations: {
-//       resize: { width: 100 },
-//       quality: "auto",
-//       format: "webp",
-//       effect: {
-//         name: "blur",
-//         value: "1000",
-//       },
-//     },
-//   });
-//   const dataUrl = await getDataUrlForImage(imageURL);
-//   return dataUrl;
-// }
-
-async function getDataUrlForImage(imageUrl: string) {
-  const res = await fetch(imageUrl);
-  const arrayBuffer = await res.arrayBuffer();
-  const base64 = Buffer.from(arrayBuffer).toString('base64');
-  const mime = res.headers.get('Content-Type') ?? 'image/webp';
-  const dataUrl = `data:${mime};base64,${base64}`;
-  return dataUrl;
 }

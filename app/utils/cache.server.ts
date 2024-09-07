@@ -1,6 +1,7 @@
-import { remember } from "@epic-web/remember";
-import type BetterSqlite3 from "better-sqlite3";
-import Database from "better-sqlite3";
+/* eslint-disable @typescript-eslint/no-explicit-any */
+import {remember} from '@epic-web/remember';
+import type BetterSqlite3 from 'better-sqlite3';
+import Database from 'better-sqlite3';
 import {
   type Cache,
   cachified as baseCachified,
@@ -9,20 +10,20 @@ import {
   type Cache as CachifiedCache,
   type CachifiedOptions,
   totalTtl,
-} from "@epic-web/cachified";
-import fs from "fs";
-import { getInstanceInfo, getInstanceInfoSync } from "litefs-js";
-import { LRUCache } from "lru-cache";
-import { getRequiredServerEnvVar } from "./misc.tsx";
-import { time, type Timings } from "./timing.server.ts";
+} from '@epic-web/cachified';
+import fs from 'fs';
+import {getInstanceInfo, getInstanceInfoSync} from 'litefs-js';
+import {LRUCache} from 'lru-cache';
+import {getRequiredServerEnvVar} from './misc.tsx';
+import {time, type Timings} from './timing.server.ts';
 
-const CACHE_DATABASE_PATH = getRequiredServerEnvVar("CACHE_DATABASE_PATH");
+const CACHE_DATABASE_PATH = getRequiredServerEnvVar('CACHE_DATABASE_PATH');
 
-const cacheDb = remember("cacheDb", createDatabase);
+const cacheDb = remember('cacheDb', createDatabase);
 
 function createDatabase(tryAgain = true): BetterSqlite3.Database {
   const db = new Database(CACHE_DATABASE_PATH);
-  const { currentIsPrimary } = getInstanceInfoSync();
+  const {currentIsPrimary} = getInstanceInfoSync();
   if (!currentIsPrimary) return db;
 
   try {
@@ -38,7 +39,7 @@ function createDatabase(tryAgain = true): BetterSqlite3.Database {
     fs.unlinkSync(CACHE_DATABASE_PATH);
     if (tryAgain) {
       console.error(
-        `Error creating cache database, deleting the file at "${CACHE_DATABASE_PATH}" and trying again...`
+        `Error creating cache database, deleting the file at "${CACHE_DATABASE_PATH}" and trying again...`,
       );
       return createDatabase(false);
     }
@@ -48,8 +49,8 @@ function createDatabase(tryAgain = true): BetterSqlite3.Database {
 }
 
 const lruInstance = remember(
-  "lru-cache",
-  () => new LRUCache<string, CacheEntry<unknown>>({ max: 5000 })
+  'lru-cache',
+  () => new LRUCache<string, CacheEntry<unknown>>({max: 5000}),
 );
 
 export const lruCache = {
@@ -69,15 +70,15 @@ export const lruCache = {
 } satisfies Cache;
 
 const preparedGet = cacheDb.prepare(
-  "SELECT value, metadata FROM cache WHERE key = ?"
+  'SELECT value, metadata FROM cache WHERE key = ?',
 );
 const preparedSet = cacheDb.prepare(
-  "INSERT OR REPLACE INTO cache (key, value, metadata) VALUES (@key, @value, @metadata)"
+  'INSERT OR REPLACE INTO cache (key, value, metadata) VALUES (@key, @value, @metadata)',
 );
-const preparedDelete = cacheDb.prepare("DELETE FROM cache WHERE key = ?");
+const preparedDelete = cacheDb.prepare('DELETE FROM cache WHERE key = ?');
 
 export const cache: CachifiedCache = {
-  name: "SQLite cache",
+  name: 'SQLite cache',
   get(key) {
     const result = preparedGet.get(key) as any; // TODO: fix this with zod or something
     if (!result) return null;
@@ -88,67 +89,40 @@ export const cache: CachifiedCache = {
   },
   async set(key, entry) {
     // eslint-disable-next-line @typescript-eslint/no-unnecessary-condition
-    const { currentIsPrimary, primaryInstance } = await getInstanceInfo();
+    const {currentIsPrimary} = await getInstanceInfo();
     if (currentIsPrimary) {
       preparedSet.run({
         key,
         value: JSON.stringify(entry.value),
         metadata: JSON.stringify(entry.metadata),
       });
-    } else {
-      // fire-and-forget cache update
-      // void updatePrimaryCacheValue!({
-      //   key,
-      //   cacheValue: entry,
-      // }).then((response) => {
-      //   if (!response.ok) {
-      //     console.error(
-      //       `Error updating cache value for key "${key}" on primary instance (${primaryInstance}): ${response.status} ${response.statusText}`,
-      //       { entry }
-      //     );
-      //   }
-      // });
     }
   },
   async delete(key) {
-    const { currentIsPrimary, primaryInstance } = await getInstanceInfo();
+    const {currentIsPrimary} = await getInstanceInfo();
     if (currentIsPrimary) {
       preparedDelete.run(key);
-    } else {
-      // fire-and-forget cache update
-      // void updatePrimaryCacheValue!({
-      //   key,
-      //   cacheValue: undefined,
-      // }).then((response) => {
-      //   if (!response.ok) {
-      //     console.error(
-      //       `Error deleting cache value for key "${key}" on primary instance (${primaryInstance}): ${response.status} ${response.statusText}`
-      //     );
-      //   }
-      // });
     }
   },
 };
 
-const preparedAllKeys = cacheDb.prepare("SELECT key FROM cache LIMIT ?");
+const preparedAllKeys = cacheDb.prepare('SELECT key FROM cache LIMIT ?');
 export async function getAllCacheKeys(limit: number) {
   return {
-    sqlite: preparedAllKeys
-      .all(limit)
-      .map((row) => (row as { key: string }).key),
+    sqlite: preparedAllKeys.all(limit).map(row => (row as {key: string}).key),
     lru: [...lruInstance.keys()],
   };
 }
 
 const preparedKeySearch = cacheDb.prepare(
-  "SELECT key FROM cache WHERE key LIKE ? LIMIT ?"
+  'SELECT key FROM cache WHERE key LIKE ? LIMIT ?',
 );
 export async function searchCacheKeys(search: string, limit: number) {
   return {
     sqlite: preparedKeySearch
       .all(`%${search}%`, limit)
-      .map((row) => (row as { key: string }).key),
-    lru: [...lruInstance.keys()].filter((key) => key.includes(search)),
+      .map(row => (row as {key: string}).key),
+    lru: [...lruInstance.keys()].filter(key => key.includes(search)),
   };
 }
 
@@ -161,24 +135,24 @@ export async function shouldForceFresh({
   request?: Request;
   key: string;
 }) {
-  if (typeof forceFresh === "boolean") return forceFresh;
-  if (typeof forceFresh === "string")
-    return forceFresh.split(",").includes(key);
+  if (typeof forceFresh === 'boolean') return forceFresh;
+  if (typeof forceFresh === 'string')
+    return forceFresh.split(',').includes(key);
 
   if (!request) return false;
-  const fresh = new URL(request.url).searchParams.get("fresh");
-  if (typeof fresh !== "string") return false;
+  const fresh = new URL(request.url).searchParams.get('fresh');
+  if (typeof fresh !== 'string') return false;
   // if ((await getUser(request))?.role !== "ADMIN") return false;
-  if (fresh === "") return true;
+  if (fresh === '') return true;
 
-  return fresh.split(",").includes(key);
+  return fresh.split(',').includes(key);
 }
 
 export async function cachified<Value>({
   request,
   timings,
   ...options
-}: Omit<CachifiedOptions<Value>, "forceFresh"> & {
+}: Omit<CachifiedOptions<Value>, 'forceFresh'> & {
   request?: Request;
   timings?: Timings;
   forceFresh?: boolean | string;
@@ -192,7 +166,7 @@ export async function cachified<Value>({
         request,
         key: options.key,
       }),
-      getFreshValue: async (context) => {
+      getFreshValue: async context => {
         // if we've already retrieved the cached value, then this may be called
         // after the response has already been sent so there's no point in timing
         // how long this is going to take
@@ -206,7 +180,7 @@ export async function cachified<Value>({
         return options.getFreshValue(context);
       },
     },
-    verboseReporter()
+    verboseReporter(),
   );
   const result = await time(cachifiedPromise, {
     timings,

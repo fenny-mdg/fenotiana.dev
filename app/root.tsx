@@ -4,7 +4,6 @@ import {
   Outlet,
   Scripts,
   ScrollRestoration,
-  LiveReload,
 } from '@remix-run/react';
 import './assets/css/tailwind.css';
 
