@@ -1,7 +1,7 @@
 import {useTranslation} from 'react-i18next';
 
 import type {SelectProps} from '~/components/select/common.ts';
-import Select from '~/components/select/select.tsx';
+// import Select from '~/components/select/select.tsx';
 import Toggle from '~/components/toggle.tsx';
 import useTheme from '~/utils/hooks/theme.ts';
 import {i18n} from '~/utils/translation/i18n.ts';
@@ -21,6 +21,14 @@ import Contact from '~/components/landing/contact.tsx';
 import AboutMe from '~/components/landing/about-me.tsx';
 import ProjectSection from '~/components/landing/project.tsx';
 import Button from '~/components/button/button.tsx';
+import {
+  Select,
+  SelectContent,
+  SelectTrigger,
+  SelectValue,
+} from '@/components/ui/select';
+import {SelectItem} from '@radix-ui/react-select';
+import {useCallback, useState} from 'react';
 
 const languageOptions: SelectProps['options'] = [
   {
@@ -49,19 +57,7 @@ const contacts = [
 
 export default function Index() {
   const [theme, setTheme] = useTheme();
-  const {t} = useTranslation();
-  const handleChange = (value: boolean) => {
-    setTheme?.(value ? 'light' : 'dark');
-  };
-  const handleLanguageChange = async (language: string | number) => {
-    console.log('Language change');
-    try {
-      await i18n.changeLanguage(language as string);
-    } catch (error) {
-      console.error(error);
-    }
-  };
-  const mapLanguage = (language: string) => {
+  const mapLanguage = useCallback((language: string) => {
     switch (true) {
       case language.includes('fr'):
         return 'fr';
@@ -69,6 +65,19 @@ export default function Index() {
         return 'en';
       default:
         return language;
+    }
+  }, []);
+  const [language, setLanguage] = useState(mapLanguage(i18n.language));
+  const {t} = useTranslation();
+  const handleChange = (value: boolean) => {
+    setTheme?.(value ? 'light' : 'dark');
+  };
+  const handleLanguageChange = async (language: string | number) => {
+    try {
+      await i18n.changeLanguage(language as string);
+      setLanguage(language as string);
+    } catch (error) {
+      console.error(error);
     }
   };
 
@@ -85,11 +94,18 @@ export default function Index() {
           onChange={handleChange}
           screenReaderLabel="Dark mode"
         />
-        <Select
-          options={languageOptions}
-          defaultSelected={mapLanguage(i18n.language)}
-          onChange={handleLanguageChange}
-        />
+        <Select onValueChange={handleLanguageChange} value={language}>
+          <SelectTrigger className="[&>span]:text-xl w-16">
+            <SelectValue>{language.includes('fr') ? '🇫🇷' : '🏴󠁧󠁢󠁥󠁮󠁧󠁿'}</SelectValue>
+          </SelectTrigger>
+          <SelectContent className="min-w-0">
+            {languageOptions?.map(language => (
+              <SelectItem value={`${language.value}`} key={language.value}>
+                {language.icon}
+              </SelectItem>
+            ))}
+          </SelectContent>
+        </Select>
       </nav>
       <div className="col-span-6 flex h-screen flex-col justify-center overflow-x-hidden overflow-y-scroll bg-white px-8 dark:bg-slate-800 lg:col-span-2 lg:h-full lg:rounded-lg lg:shadow-lg">
         <div className="flex flex-wrap items-center gap-8">
