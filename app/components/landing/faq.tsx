@@ -1,13 +1,36 @@
+import {
+  Accordion,
+  AccordionContent,
+  AccordionItem,
+  AccordionTrigger,
+} from '@/components/ui/accordion';
 import Title from '../title';
 import Container from './container';
+import {useTranslation} from 'react-i18next';
+
+const faqs = Array.from({length: 10}).map((_, i) => ({
+  question: `question_${i + 1}`,
+  answer: `answer_${i + 1}`,
+}));
 
 export default function FAQ() {
+  const {t} = useTranslation();
   return (
     <Container className="!h-fit flex-col p-8">
       <Title>FAQ</Title>
 
-      <p>{`Content: Address common questions clients might have about working with you, such as project timelines, pricing, tech stack, and your approach to development.
-SEO Tips: Use keywords related to customer queries like "how to hire a JavaScript developer" or "pricing for JavaScript development services."`}</p>
+      <Accordion type="multiple">
+        {faqs.map(({question, answer}) => (
+          <AccordionItem key={question} value={question}>
+            <AccordionTrigger className="text-lg text-start lg:text-xl hover:text-rose-500">
+              {t(`faq.${question}`)}
+            </AccordionTrigger>
+            <AccordionContent className="text-sm lg:text-base">
+              {t(`faq.${answer}`)}
+            </AccordionContent>
+          </AccordionItem>
+        ))}
+      </Accordion>
     </Container>
   );
 }
