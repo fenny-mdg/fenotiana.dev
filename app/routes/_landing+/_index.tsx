@@ -19,7 +19,7 @@ import skype from '../../../public/images/skype.svg';
 import me from '../../../public/images/avatar.svg';
 import Contact from '~/components/landing/contact.tsx';
 import AboutMe from '~/components/landing/about-me.tsx';
-import ProjectSection from '~/components/landing/project.tsx';
+// import ProjectSection from '~/components/landing/project.tsx';
 import Button from '~/components/button/button.tsx';
 import {
   Select,
@@ -29,6 +29,11 @@ import {
 } from '@/components/ui/select';
 import {SelectItem} from '@radix-ui/react-select';
 import {useCallback, useState} from 'react';
+import FAQ from '~/components/landing/faq';
+import Services from '~/components/landing/services';
+import Skills from '~/components/landing/skills';
+import CaseStudies from '~/components/landing/case-studies';
+import BlogSection from '~/components/landing/blog';
 
 const languageOptions: SelectProps['options'] = [
   {
@@ -158,7 +163,12 @@ export default function Index() {
       <div className="col-span-6 h-full overflow-visible lg:col-span-4 lg:overflow-scroll lg:rounded-lg lg:backdrop-blur-lg">
         <HelloWorld />
         <AboutMe />
-        <ProjectSection />
+        <Services />
+        <Skills />
+        <CaseStudies />
+        {/* <ProjectSection /> */}
+        <BlogSection posts={[]} />
+        <FAQ />
         <Contact />
       </div>
     </main>

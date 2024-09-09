@@ -19,6 +19,10 @@ const config = {
       },
     },
     extend: {
+      backgroundImage: {
+        'landing-bg': "url('/images/bg.svg')",
+        'landing-bg-dark': "url('/images/bg-dark.svg')",
+      },
       colors: {
         border: 'hsl(var(--border))',
         input: 'hsl(var(--input))',
@@ -61,12 +65,20 @@ const config = {
       },
       keyframes: {
         'accordion-down': {
-          from: {height: '0'},
-          to: {height: 'var(--radix-accordion-content-height)'},
+          from: {
+            height: '0',
+          },
+          to: {
+            height: 'var(--radix-accordion-content-height)',
+          },
         },
         'accordion-up': {
-          from: {height: 'var(--radix-accordion-content-height)'},
-          to: {height: '0'},
+          from: {
+            height: 'var(--radix-accordion-content-height)',
+          },
+          to: {
+            height: '0',
+          },
         },
       },
       animation: {
