@@ -4,14 +4,12 @@ import {useTranslation} from 'react-i18next';
 import Title from '../title.tsx';
 import Container from './container.tsx';
 import {ArticleCard} from '../article-card.tsx';
+import {Link} from '@remix-run/react';
 
 type BlogSectionProps = {posts: any[]};
 
 export default function BlogSection({posts}: BlogSectionProps) {
   const {t} = useTranslation();
-  // const loaderData = useLoaderData<typeof loader>();
-
-  // console.log(loaderData);
 
   return (
     <Container className="!h-fit flex-col p-8">
@@ -21,6 +19,12 @@ export default function BlogSection({posts}: BlogSectionProps) {
         {posts.map(post => (
           <ArticleCard key={post.slug} article={post} />
         ))}
+      </div>
+
+      <div className="flex justify-center mt-8">
+        <Link to="/blog" className="btn">
+          {t('blog.viewAll')}
+        </Link>
       </div>
     </Container>
   );
