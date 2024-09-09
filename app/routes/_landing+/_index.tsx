@@ -16,7 +16,7 @@ import email from '../../../public/images/email.svg';
 import linkedin from '../../../public/images/linkedin.svg';
 import whatsapp from '../../../public/images/whatsapp.svg';
 import skype from '../../../public/images/skype.svg';
-import me from '../../../public/images/avatar.svg';
+import me from '../../../public/images/me.png';
 import Contact from '~/components/landing/contact.tsx';
 import AboutMe from '~/components/landing/about-me.tsx';
 // import ProjectSection from '~/components/landing/project.tsx';
@@ -114,11 +114,9 @@ export default function Index() {
       </nav>
       <div className="col-span-6 flex h-screen flex-col justify-center overflow-x-hidden overflow-y-scroll bg-white px-8 dark:bg-slate-800 lg:col-span-2 lg:h-full lg:rounded-lg lg:shadow-lg">
         <div className="flex flex-wrap items-center gap-8">
-          <img
-            alt="me"
-            className="h-40 w-40 rounded-full bg-slate-50 shadow-md dark:bg-slate-700 "
-            src={me}
-          />
+          <div className="relative overflow-hidden h-40 w-40 rounded-full bg-slate-50 shadow-md dark:bg-slate-700 ">
+            <img alt="me" className="rounded-full scale-110 absolute -top-5 left-2 rotate-2" src={me} />
+          </div>
 
           <h1 className=" font-bold">
             <span className="bg-gradient-to-r from-violet-500 via-pink-500  to-rose-600 bg-clip-text text-6xl text-transparent lg:text-5xl">
