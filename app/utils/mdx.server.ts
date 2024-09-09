@@ -226,7 +226,7 @@ async function compileMdxCached({
 
       if (compiledPage) {
         if (
-          compiledPage.frontmatter.bannerCloudinaryId &&
+          compiledPage.frontmatter.bannerImageUrl &&
           !compiledPage.frontmatter.bannerBlurDataUrl
         ) {
           try {
