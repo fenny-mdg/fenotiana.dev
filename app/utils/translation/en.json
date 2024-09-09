@@ -34,5 +34,27 @@
   "blog": {
     "title": "Blog",
     "readMore": "Read more"
+  },
+  "faq": {
+    "question_1": "What services do you offer as a JavaScript developer?",
+    "answer_1": "I offer a range of web development services, including front-end development with React, Angular, and Tailwind CSS, as well as back-end development using Node.js, Express, and Fastify. Additionally, I provide consulting services, custom web applications, and performance optimization for existing websites.",
+    "question_2": "Do you work with companies outside of Madagascar?",
+    "answer_2": "Yes, I work with clients from all around the world. With remote collaboration tools, I'm able to manage projects efficiently, no matter the client's location.",
+    "question_3": "What technologies do you specialize in?",
+    "answer_3": "I specialize in JavaScript, particularly in React for front-end development and Node.js for back-end development. I also work with frameworks like Angular, Express, and Fastify, and tools like GitHub Actions, AWS, and Terraform.",
+    "question_4": "What is your typical project timeline?",
+    "answer_4": "The timeline depends on the complexity of the project. For smaller projects, it may take a few weeks, while more complex applications could take several months. I work closely with clients to define realistic timelines based on their requirements.",
+    "question_5": "How do you handle project management and communication?",
+    "answer_5": "I use project management tools such as Trello, Asana, or Jira to track progress and tasks. Communication is typically through email, Slack, or video calls. I ensure that clients are updated regularly with clear reports on the progress of their projects.",
+    "question_6": "What are your rates for web development?",
+    "answer_6": "My rates vary depending on the project’s scope, complexity, and duration. I typically work on a per-project basis, but I also offer hourly rates for ongoing consultation or maintenance services. Feel free to contact me to discuss your specific project and get a custom quote.",
+    "question_7": "Do you provide ongoing maintenance and support after the project is completed?",
+    "answer_7": "Yes, I offer maintenance and support services to ensure that your website or application continues to function smoothly after deployment. This includes bug fixes, performance optimization, and regular updates as needed.",
+    "question_8": "How do you ensure the quality of your code?",
+    "answer_8": "I follow best practices for clean, maintainable code and use testing frameworks to ensure code reliability. I also conduct thorough code reviews and performance testing to ensure high-quality deliverables.",
+    "question_9": "Can you help with website performance optimization?",
+    "answer_9": "Absolutely. I specialize in optimizing JavaScript applications for speed and performance. This includes improving loading times, ensuring SEO best practices, and making your web applications more efficient and scalable.",
+    "question_10": "How can I get started with a project?",
+    "answer_10": "You can reach out via the contact form on my website or send me an email to discuss your project. We’ll start with an initial consultation to understand your requirements, followed by a detailed proposal outlining timelines and costs."
   }
 }
