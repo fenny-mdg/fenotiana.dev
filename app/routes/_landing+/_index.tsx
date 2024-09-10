@@ -67,8 +67,6 @@ export const loader = async ({request}: LoaderFunctionArgs) => {
     allPosts.filter(p => !p.frontmatter.draft),
   );
 
-  console.dir(posts, {depth: null});
-
   return json(
     {posts: posts.slice(0, 3)},
     {
