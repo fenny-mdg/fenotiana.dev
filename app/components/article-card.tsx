@@ -16,9 +16,6 @@ function ArticleCard({
   article: MdxListItem;
   leadingTeam?: Team | null;
 }) {
-  // const { requestInfo } = useRootData();
-  // const permalink = `${requestInfo.origin}/blog/${slug}`;
-
   return (
     <div
       className={clsx(
@@ -35,7 +32,7 @@ function ArticleCard({
       >
         <div>
           <div className="focus-ring w-full rounded-lg transition">
-            <img alt={slug} src={bannerImageUrl} />
+            <img alt={slug} src={bannerImageUrl} className="rounded-lg" />
           </div>
         </div>
         <div className="mt-8 text-xl font-medium text-gray-500">

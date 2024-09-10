@@ -33,7 +33,8 @@
   },
   "blog": {
     "title": "Blog",
-    "readMore": "Read more"
+    "readMore": "Read more",
+    "viewAll": "View all"
   },
   "faq": {
     "question_1": "What services do you offer as a JavaScript developer?",

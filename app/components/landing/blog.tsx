@@ -17,7 +17,9 @@ export default function BlogSection({posts}: BlogSectionProps) {
 
       <div className="flex flex-wrap justify-center gap-8 md:justify-start">
         {posts.map(post => (
-          <ArticleCard key={post.slug} article={post} />
+          <div key={post.slug} className="lg:w-[30%]">
+            <ArticleCard article={post} />
+          </div>
         ))}
       </div>
 
