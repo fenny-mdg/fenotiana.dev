@@ -1,4 +1,4 @@
-import { stackIconClassName } from "./common";
+import {stackIconClassName} from './common';
 
 export default function ReactIcon() {
   return (

@@ -63,3 +63,81 @@
 }
 [aria-disabled='false'] {
 }
+
+.orbit-0 {
+  @apply size-36;
+  @apply group-hover:animate-orbit-slow;
+
+  &.rounded-rectangle {
+    @apply w-36 h-[calc(9rem*0.75)];
+  }
+}
+
+.orbit-1 {
+  @apply size-60;
+  @apply group-hover:animate-orbit;
+
+  &.rounded-rectangle {
+    @apply w-60 h-[calc(15rem*0.75)];
+  }
+}
+
+.orbit-2 {
+  @apply size-[21rem];
+  @apply group-hover:animate-orbit-fast;
+
+  &.rounded-rectangle {
+    @apply w-[21rem] h-[calc(21rem*0.75)];
+  }
+}
+
+.orbit-3 {
+  @apply size-[27rem];
+  @apply group-hover:animate-orbit-slow;
+
+  &.rounded-rectangle {
+    @apply w-[27rem] h-[calc(27rem*0.75)];
+  }
+}
+
+.orbit-4 {
+  @apply size-[33rem];
+  @apply group-hover:animate-orbit-fast;
+
+  &.rounded-rectangle {
+    @apply w-[33rem] h-[calc(33rem*0.75)];
+  }
+}
+
+.orbit-5 {
+  @apply size-[39rem];
+  @apply group-hover:animate-orbit;
+
+  &.rounded-rectangle {
+    @apply w-[39rem] h-[calc(39rem*0.75)];
+  }
+}
+
+.orbit-item-container-left {
+  @apply justify-start;
+}
+
+.orbit-item-container-right {
+  @apply justify-end;
+}
+
+.orbit-item-left {
+  @apply -ml-5;
+
+  &.rounded-rectangle {
+    @apply -ml-3;
+  }
+}
+
+.orbit-item-right {
+  @apply -mr-5;
+
+  &.rounded-rectangle {
+    @apply -mr-3;
+  }
+}
