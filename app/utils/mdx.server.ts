@@ -126,9 +126,12 @@ export async function getMdxDirList(
   });
 }
 
-export async function getBlogMdxListItems(options: CachifiedOptions) {
+export async function getBlogMdxListItems(
+  options: CachifiedOptions,
+  directory = 'blog',
+) {
   const {request, forceFresh, ttl = defaultTTL, timings} = options;
-  const key = 'blog:mdx-list-items';
+  const key = `${directory}:mdx-list-items`;
   return cachified({
     cache,
     request,
@@ -138,8 +141,9 @@ export async function getBlogMdxListItems(options: CachifiedOptions) {
     forceFresh,
     key,
     getFreshValue: async () => {
-      let pages = await getMdxPagesInDirectory('blog', options).then(allPosts =>
-        allPosts.filter(p => !p.frontmatter.draft && !p.frontmatter.unlisted),
+      let pages = await getMdxPagesInDirectory(directory, options).then(
+        allPosts =>
+          allPosts.filter(p => !p.frontmatter.draft && !p.frontmatter.unlisted),
       );
 
       pages = pages.sort((a, z) => {
