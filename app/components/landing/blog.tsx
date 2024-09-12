@@ -1,12 +1,13 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import {useTranslation} from 'react-i18next';
+import {Link} from '@remix-run/react';
 
 import Title from '../title.tsx';
 import Container from './container.tsx';
 import {ArticleCard} from '../article-card.tsx';
-import {Link} from '@remix-run/react';
+import {MdxListItem} from '~/types/index.js';
 
-type BlogSectionProps = {posts: any[]};
+type BlogSectionProps = {posts: MdxListItem[]};
 
 export default function BlogSection({posts}: BlogSectionProps) {
   const {t} = useTranslation();

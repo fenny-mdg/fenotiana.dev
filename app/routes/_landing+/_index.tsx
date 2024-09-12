@@ -66,9 +66,12 @@ export const loader = async ({request}: LoaderFunctionArgs) => {
   const posts = await getBlogMdxListItems({request}).then(allPosts =>
     allPosts.filter(p => !p.frontmatter.draft),
   );
+  const projects = await getBlogMdxListItems({request}, 'project').then(
+    allPosts => allPosts.filter(p => !p.frontmatter.draft),
+  );
 
   return json(
-    {posts: posts.slice(0, 3)},
+    {posts: posts.slice(0, 3), projects: projects.slice(0, 3)},
     {
       headers: {
         'Cache-Control': 'private, max-age=3600',
@@ -80,7 +83,7 @@ export const loader = async ({request}: LoaderFunctionArgs) => {
 };
 
 export default function Index() {
-  const {posts} = useLoaderData<typeof loader>();
+  const {posts, projects} = useLoaderData<typeof loader>();
   const [theme, setTheme] = useTheme();
   const mapLanguage = useCallback((language: string) => {
     switch (true) {
