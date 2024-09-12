@@ -13,14 +13,14 @@ export default function CaseStudies({projects}: {projects: MdxListItem[]}) {
 
       <div className="flex flex-wrap justify-center gap-8 md:justify-start">
         {projects.map(project => (
-          <div key={project.slug} className="lg:w-[30%]">
+          <div key={project.slug} className="lg:w-[45%]">
             <ProjectCard project={project} />
           </div>
         ))}
       </div>
 
       <div className="flex justify-center mt-8">
-        <Link to="/blog" className="btn">
+        <Link to="/projects" className="btn">
           {t('blog.viewAll')}
         </Link>
       </div>

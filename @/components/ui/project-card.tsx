@@ -17,23 +17,24 @@ export const ProjectCard = ({
     <div className={cn('relative w-full')}>
       <Link
         prefetch="intent"
-        className="group peer relative block w-full focus:outline-none"
-        to={`/project/${slug}`}
+        className={cn(
+          'group peer relative block w-full focus:outline-none rounded-2xl',
+          'hover:bg-gray-100 dark:hover:bg-gray-700',
+        )}
+        to={`/projects/${slug}`}
       >
-        <div>
-          <div className="focus-ring w-full rounded-lg transition">
-            <img alt={slug} src={bannerImageUrl} className="rounded-lg" />
-          </div>
+        <div className="focus-ring w-full rounded-lg transition">
+          <img
+            alt={slug}
+            src={bannerImageUrl}
+            className="rounded-2xl shadow-md"
+          />
         </div>
-        {/* <div className="mt-8 text-xl font-medium text-gray-500">
-          {[dateDisplay, readTime?.text ?? 'quick read']
-            .filter(Boolean)
-            .join(' — ')}
-        </div> */}
-        <H3 as="div" className="mt-4">
-          {title}
-        </H3>
-        <p>{description}</p>
+
+        <div className="p-4 min-h-64 space-y-2">
+          <H3 as="div">{title}</H3>
+          <p>{description}</p>
+        </div>
       </Link>
     </div>
   );
