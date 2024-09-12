@@ -190,7 +190,7 @@ export default function Index() {
         <AboutMe />
         <Services />
         <Skills />
-        <CaseStudies />
+        <CaseStudies projects={projects} />
         {/* <ProjectSection /> */}
         <BlogSection posts={posts} />
         <FAQ />
