@@ -36,6 +36,7 @@ import {json, LoaderFunctionArgs} from '@remix-run/node';
 import {getBlogMdxListItems} from '~/utils/mdx.server';
 import {useLoaderData} from '@remix-run/react';
 import {getServerTimeHeader} from '~/utils/timing.server';
+import Certification from '~/components/landing/certification';
 
 const languageOptions: SelectProps['options'] = [
   {
@@ -193,6 +194,7 @@ export default function Index() {
         <CaseStudies projects={projects} />
         {/* <ProjectSection /> */}
         <BlogSection posts={posts} />
+        <Certification />
         <FAQ />
         <Contact />
       </div>
