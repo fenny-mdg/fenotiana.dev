@@ -28,20 +28,60 @@ export default function Certification() {
   return (
     <Container className="!h-fit flex-col p-8">
       <Title>Certification</Title>
+
       <div className="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3">
         {certificates.map((cert, index) => (
-          <div key={index} className="border rounded-lg p-4 shadow-lg">
-            <img
-              src={cert.preview}
-              alt={`${cert.title} preview`}
-              className="w-full h-32 object-cover rounded-t-lg"
-            />
-            <div className="p-4">
-              <h3 className="text-xl font-semibold">{cert.title}</h3>
-              <p className="text-gray-600">{cert.description}</p>
-              <p className="text-gray-500 text-sm mt-2">
-                Issued: {cert.issueDate}
-              </p>
+          <div
+            key={index}
+            className="max-w-md mx-auto bg-background rounded-lg shadow-lg p-6"
+          >
+            <div className="flex justify-between items-center mb-4">
+              <div className="bg-primary text-primary-foreground rounded-full p-4">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                  className="w-8 h-8"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth="2"
+                    d="M12 12l-9 4.5v-9L12 3l9 4.5v9L12 12z"
+                  />
+                </svg>
+              </div>
+
+              <div className="text-right">
+                <p className="text-primary-foreground text-sm">Issued On:</p>
+                <p className="font-semibold text-card-foreground">
+                  Sept 21, 2024
+                </p>
+              </div>
+            </div>
+
+            <h2 className="text-xl font-bold text-card-foreground mb-2">
+              Certificate of Excellence
+            </h2>
+
+            <p className="text-lg font-semibold text-primary-foreground mb-4">
+              John Doe
+            </p>
+
+            <p className="text-gray-600 mb-4">
+              This certificate is proudly awarded for outstanding performance
+              and dedication in completing the course Advanced Web Development
+              with Tailwind CSS and ShadCN.
+            </p>
+
+            <div className="flex justify-end space-x-2">
+              <button className="bg-blue-600 hover:bg-blue-700 text-white font-semibold py-2 px-4 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 transition">
+                Print
+              </button>
+              <button className="bg-gray-200 hover:bg-gray-300 text-gray-700 font-semibold py-2 px-4 rounded-md focus:outline-none focus:ring-2 focus:ring-gray-300 focus:ring-offset-2 transition">
+                Download
+              </button>
             </div>
           </div>
         ))}
