@@ -19,10 +19,10 @@ const config = {
       },
     },
     extend: {
-      backgroundImage: {
-        'landing-bg': "url('/images/bg.svg')",
-        'landing-bg-dark': "url('/images/bg-dark.svg')",
-      },
+      // backgroundImage: {
+      //   'landing-bg': "url('/images/bg.svg')",
+      //   'landing-bg-dark': "url('/images/bg-dark.svg')",
+      // },
       colors: {
         border: 'hsl(var(--border))',
         input: 'hsl(var(--input))',

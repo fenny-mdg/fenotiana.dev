@@ -19,7 +19,7 @@ import skype from '../../../public/images/skype.svg';
 import me from '../../../public/images/me.png';
 import Contact from '~/components/landing/contact.tsx';
 import AboutMe from '~/components/landing/about-me.tsx';
-import Button from '~/components/button/button.tsx';
+// import Button from '~/components/button/button.tsx';
 import {
   Select,
   SelectContent,
@@ -37,6 +37,7 @@ import {getBlogMdxListItems} from '~/utils/mdx.server';
 import {useLoaderData} from '@remix-run/react';
 import {getServerTimeHeader} from '~/utils/timing.server';
 import Certification from '~/components/landing/certification';
+import {Button} from '@/components/ui/button';
 
 const languageOptions: SelectProps['options'] = [
   {
@@ -112,31 +113,7 @@ export default function Index() {
 
   return (
     <main className="relative grid h-screen w-screen grid-cols-6 bg-cover bg-center bg-no-repeat lg:gap-8 lg:bg-landing-bg lg:p-12 lg:dark:bg-landing-bg-dark ">
-      <nav className="fixed right-8 top-2 z-10 flex items-center gap-4 rounded-full bg-white px-4 py-1 dark:bg-slate-800 dark:shadow-gray-900 md:top-1 lg:right-16 lg:top-7 lg:shadow-lg">
-        <Button>About me</Button>
-        <Button>Projects</Button>
-        <Button>Contact</Button>
-        <Button>Blog</Button>
-
-        <Toggle
-          checked={theme === 'light'}
-          onChange={handleChange}
-          screenReaderLabel="Dark mode"
-        />
-        <Select onValueChange={handleLanguageChange} value={language}>
-          <SelectTrigger className="[&>span]:text-xl w-16">
-            <SelectValue>{language.includes('fr') ? '🇫🇷' : '🏴󠁧󠁢󠁥󠁮󠁧󠁿'}</SelectValue>
-          </SelectTrigger>
-          <SelectContent className="min-w-0">
-            {languageOptions?.map(language => (
-              <SelectItem value={`${language.value}`} key={language.value}>
-                {language.icon}
-              </SelectItem>
-            ))}
-          </SelectContent>
-        </Select>
-      </nav>
-      <div className="col-span-6 flex h-screen flex-col justify-center overflow-x-hidden overflow-y-scroll bg-white px-8 dark:bg-slate-800 lg:col-span-2 lg:h-full lg:rounded-lg lg:shadow-lg">
+      <div className="col-span-6 flex h-screen flex-col justify-center overflow-x-hidden overflow-y-scroll  px-8 bg-background lg:col-span-2 lg:h-full lg:rounded-lg lg:shadow-lg">
         <div className="flex flex-wrap items-center gap-8">
           <div className="relative overflow-hidden h-40 w-40 rounded-full bg-slate-50 shadow-md dark:bg-slate-700 ">
             <img
@@ -147,17 +124,17 @@ export default function Index() {
           </div>
 
           <h1 className=" font-bold">
-            <span className="bg-gradient-to-r from-violet-500 via-pink-500  to-rose-600 bg-clip-text text-6xl text-transparent lg:text-5xl">
+            <span className="bg-gradient-to-r from-primary to-accent bg-clip-text text-6xl text-transparent lg:text-5xl">
               Fenotiana
             </span>{' '}
             <br />{' '}
-            <span className="text-2xl font-light text-gray-700 dark:text-gray-100 ">
+            <span className="text-2xl font-light">
               ANDRIAMAHENIMANANA
             </span>
           </h1>
         </div>
 
-        <section className="mt-8 rounded rounded-bl-none rounded-tl-none border-l-4 border-l-violet-500 bg-gray-100 p-4 text-gray-700 dark:bg-gray-700 dark:text-white lg:text-sm">
+        <section className="mt-8 rounded rounded-bl-none rounded-tl-none border-l-4 border-l-primary p-4 lg:text-sm bg-muted">
           {t('landing.summary')}
         </section>
 
@@ -186,7 +163,31 @@ export default function Index() {
           ))}
         </div>
       </div>
-      <div className="col-span-6 h-full overflow-visible lg:col-span-4 lg:overflow-scroll lg:rounded-lg lg:backdrop-blur-lg">
+      <div className="relative col-span-6 h-full overflow-visible lg:col-span-4 lg:overflow-scroll lg:rounded-lg lg:backdrop-blur-lg lg:[&_section]:mb-8 lg:last:[&_section]:mb-0 ">
+        <nav className="sticky z-10 top-0 flex items-center gap-4 rounded-full bg-background px-4 py-1  lg:shadow-lg">
+          <Button>About me</Button>
+          <Button>Projects</Button>
+          <Button>Contact</Button>
+          <Button>Blog</Button>
+
+          <Toggle
+            checked={theme === 'light'}
+            onChange={handleChange}
+            screenReaderLabel="Dark mode"
+          />
+          <Select onValueChange={handleLanguageChange} value={language}>
+            <SelectTrigger className="[&>span]:text-xl w-16">
+              <SelectValue>{language.includes('fr') ? '🇫🇷' : '🏴󠁧󠁢󠁥󠁮󠁧󠁿'}</SelectValue>
+            </SelectTrigger>
+            <SelectContent className="min-w-0">
+              {languageOptions?.map(language => (
+                <SelectItem value={`${language.value}`} key={language.value}>
+                  {language.icon}
+                </SelectItem>
+              ))}
+            </SelectContent>
+          </Select>
+        </nav>
         <HelloWorld />
         <AboutMe />
         <Services />

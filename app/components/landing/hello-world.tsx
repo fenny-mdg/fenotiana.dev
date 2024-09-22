@@ -5,9 +5,9 @@ import TypeWritter from 'typewriter-effect';
 import {downloadBase64} from '~/utils/base-64-downloader.ts';
 
 import hi from '../../../public/images/hi.svg';
-import Button from '../button/button.tsx';
 import DownloadIcon from '../icon/download.tsx';
 import Container from './container.tsx';
+import {Button} from '@/components/ui/button.tsx';
 
 export default function HelloWorld() {
   const {t} = useTranslation();

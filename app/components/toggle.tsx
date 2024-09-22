@@ -1,4 +1,4 @@
-import { Switch } from "@headlessui/react";
+import {Switch} from '@headlessui/react';
 
 type ToggleProps = {
   checked: boolean;
@@ -20,7 +20,7 @@ export default function Toggle({
       checked={checked}
       onChange={handleChange}
       className={`${
-        checked ? "bg-violet-500" : "bg-gray-200"
+        checked ? 'bg-primary' : 'bg-gray-200'
       } relative inline-flex h-6 w-11 items-center rounded-full`}
     >
       {screenReaderLabel ? (
@@ -28,7 +28,7 @@ export default function Toggle({
       ) : null}
       <span
         className={`${
-          checked ? "translate-x-6" : "translate-x-1"
+          checked ? 'translate-x-6' : 'translate-x-1'
         } inline-block h-4 w-4 transform rounded-full bg-white transition`}
       />
     </Switch>
