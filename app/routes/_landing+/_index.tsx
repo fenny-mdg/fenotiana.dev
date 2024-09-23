@@ -19,7 +19,6 @@ import skype from '../../../public/images/skype.svg';
 import me from '../../../public/images/me.png';
 import Contact from '~/components/landing/contact.tsx';
 import AboutMe from '~/components/landing/about-me.tsx';
-// import Button from '~/components/button/button.tsx';
 import {
   Select,
   SelectContent,
@@ -115,7 +114,7 @@ export default function Index() {
     <main className="relative grid h-screen w-screen grid-cols-6 bg-cover bg-center bg-no-repeat lg:gap-8 lg:bg-landing-bg lg:p-12 lg:dark:bg-landing-bg-dark ">
       <div className="col-span-6 flex h-screen flex-col justify-center overflow-x-hidden overflow-y-scroll  px-8 bg-background lg:col-span-2 lg:h-full lg:rounded-lg lg:shadow-lg">
         <div className="flex flex-wrap items-center gap-8">
-          <div className="relative overflow-hidden h-40 w-40 rounded-full bg-slate-50 shadow-md dark:bg-slate-700 ">
+          <div className="relative overflow-hidden h-40 w-40 rounded-full shadow-md  bg-muted">
             <img
               alt="me"
               className="rounded-full scale-110 absolute -top-5 left-2 rotate-2"
@@ -128,9 +127,7 @@ export default function Index() {
               Fenotiana
             </span>{' '}
             <br />{' '}
-            <span className="text-2xl font-light">
-              ANDRIAMAHENIMANANA
-            </span>
+            <span className="text-2xl font-light">ANDRIAMAHENIMANANA</span>
           </h1>
         </div>
 
@@ -140,12 +137,10 @@ export default function Index() {
 
         <div className="mt-8 flex flex-wrap gap-x-8 gap-y-2">
           <span className="flex items-center gap-4">
-            {/* <img className=" w-8" src={location} alt="location" /> */}
             <LocationIcon />
             <p>Antananarivo, Madagascar</p>
           </span>
           <span className="flex items-center gap-4">
-            {/* <img className=" w-8" src={phone} alt="phone" /> */}
             <PhoneIcon />
             <p>(+261) 34 64 112 21</p>
           </span>
@@ -193,7 +188,6 @@ export default function Index() {
         <Services />
         <Skills />
         <CaseStudies projects={projects} />
-        {/* <ProjectSection /> */}
         <BlogSection posts={posts} />
         <Certification />
         <FAQ />
