@@ -103,6 +103,7 @@ export default function Skills() {
                   key={imageName}
                   src={`/images/${imageName}`}
                   alt={imageName}
+                  className="size-12"
                 />
               ),
             )}
@@ -120,8 +121,8 @@ export default function Skills() {
             variant="rounded-rectangle"
             itemsPerOrbit={2}
             items={[
-              'github_1.svg',
-              'gitlab_1.svg',
+              'github.svg',
+              'gitlab.svg',
               'jira.svg',
               'confluence.svg',
             ].map(imageName => (
