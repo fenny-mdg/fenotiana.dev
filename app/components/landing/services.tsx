@@ -1,3 +1,4 @@
+import {Button} from '@/components/ui/button';
 import Title from '../title';
 import Container from './container';
 
@@ -39,20 +40,20 @@ export default function Services() {
         {services.map((service, index) => (
           <div
             key={index}
-            className="p-6 bg-gradient-to-r from-blue-500 to-purple-600 rounded-lg shadow-md text-white transform transition-transform duration-300 hover:brightness-90"
+            className="p-6 bg-primary rounded-lg shadow-md transform transition-transform duration-300 flex flex-col gap-4 hover:shadow-lg hover:cursor-pointer"
           >
             <img
               src={service.imageUrl}
               alt={service.title}
-              className="w-full h-48 object-cover rounded-t-lg mb-4"
+              className="w-full h-48 object-cover rounded-t-lg"
             />
-            <h2 className="text-2xl font-bold mb-4">{service.title}</h2>
-            <p className="text-gray-200 whitespace-pre-line line-clamp-3">
+            <h2 className="text-2xl font-bold ">{service.title}</h2>
+            <p className=" whitespace-pre-line line-clamp-3">
               {service.description}
             </p>
-            <button className="mt-4 px-4 py-2 bg-white text-blue-500 font-semibold rounded-lg shadow-md hover:bg-gray-100">
+            <Button variant="secondary" className="self-start">
               Read More
-            </button>
+            </Button>
           </div>
         ))}
       </div>

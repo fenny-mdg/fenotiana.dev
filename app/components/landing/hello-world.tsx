@@ -5,9 +5,9 @@ import TypeWritter from 'typewriter-effect';
 import {downloadBase64} from '~/utils/base-64-downloader.ts';
 
 import hi from '../../../public/images/hi.svg';
-import Button from '../button/button.tsx';
 import DownloadIcon from '../icon/download.tsx';
 import Container from './container.tsx';
+import {Button} from '@/components/ui/button.tsx';
 
 export default function HelloWorld() {
   const {t} = useTranslation();
@@ -29,7 +29,7 @@ export default function HelloWorld() {
         <span className="flex gap-4">
           <h3>{t('landing.greeting')}</h3>{' '}
           <img src={hi} alt="hi" className="w-10 md:w-16" />,{' '}
-          <h2> {t('landing.iam')}</h2>
+          <p> {t('landing.iam')}</p>
         </span>
 
         <span className="mt-6">
@@ -43,7 +43,7 @@ export default function HelloWorld() {
               autoStart: true,
               loop: true,
               wrapperClassName:
-                'bg-gradient-to-r from-violet-500 via-pink-500  to-rose-600 bg-clip-text text-transparent text-4xl md:text-6xl',
+                'bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent text-4xl md:text-6xl',
               delay: 50,
             }}
           />

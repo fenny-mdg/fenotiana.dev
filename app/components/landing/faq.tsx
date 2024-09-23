@@ -22,7 +22,7 @@ export default function FAQ() {
       <Accordion type="multiple">
         {faqs.map(({question, answer}) => (
           <AccordionItem key={question} value={question}>
-            <AccordionTrigger className="text-lg text-start lg:text-xl hover:text-rose-500">
+            <AccordionTrigger className="text-lg text-start lg:text-xl ">
               {t(`faq.${question}`)}
             </AccordionTrigger>
             <AccordionContent className="text-sm lg:text-base">

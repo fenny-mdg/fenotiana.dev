@@ -67,41 +67,6 @@ export const Universe = ({
           </div>
         </>
       ))}
-      {/* <div className="absolute w-48 h-28 rounded-full border border-dashed border-gray-400 group-hover:animate-orbit-slow">
-        <div className="absolute inset-0 flex items-center justify-start">
-          <div
-            className="w-12 h-12  rounded-full"
-            style={{ marginLeft: '-12px' }}
-          >
-            <img src="/images/react.svg" alt="React" />
-          </div>
-        </div>
-
-
-      </div>
-
-      <div className="absolute w-72 h-48 rounded-full border border-dashed border-gray-400 animate-orbit">
-        <div className="absolute inset-0 flex items-center justify-start">
-          <div className="w-12 h-12 rounded-full" style={{ marginLeft: '-12px' }}>
-            <img src="/images/typescript.svg" alt="typescript logo" />
-          </div>
-        </div>
-      </div>
-
-      <div className="absolute w-96 h-72 rounded-full border border-dashed border-gray-400 animate-orbit-fast">
-        <div className="absolute inset-0 flex items-center justify-start">
-          <div
-            className="w-12 h-12 bg-yellow-500 rounded-full"
-            style={{ marginLeft: '-18px' }}
-          ></div>
-        </div>
-        <div className="absolute inset-0 flex items-center justify-center">
-          <div
-            className="w-12 h-12 bg-yellow-500 rounded-full"
-            style={{ marginTop: '290px' }}
-          ></div>
-        </div>
-      </div> */}
     </div>
   );
 };

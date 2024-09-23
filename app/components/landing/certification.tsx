@@ -1,3 +1,4 @@
+import {Button} from '@/components/ui/button';
 import Title from '../title';
 import Container from './container';
 
@@ -76,12 +77,8 @@ export default function Certification() {
             </p>
 
             <div className="flex justify-end space-x-2">
-              <button className="bg-blue-600 hover:bg-blue-700 text-white font-semibold py-2 px-4 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 transition">
-                Print
-              </button>
-              <button className="bg-gray-200 hover:bg-gray-300 text-gray-700 font-semibold py-2 px-4 rounded-md focus:outline-none focus:ring-2 focus:ring-gray-300 focus:ring-offset-2 transition">
-                Download
-              </button>
+              <Button>Print</Button>
+              <Button variant="link">Download</Button>
             </div>
           </div>
         ))}
