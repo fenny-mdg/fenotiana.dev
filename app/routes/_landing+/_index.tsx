@@ -33,7 +33,7 @@ import CaseStudies from '~/components/landing/case-studies';
 import BlogSection from '~/components/landing/blog';
 import {json, LoaderFunctionArgs} from '@remix-run/node';
 import {getBlogMdxListItems} from '~/utils/mdx.server';
-import {useLoaderData} from '@remix-run/react';
+import {Link, useLoaderData} from '@remix-run/react';
 import {getServerTimeHeader} from '~/utils/timing.server';
 import Certification from '~/components/landing/certification';
 import {Button} from '@/components/ui/button';
@@ -61,6 +61,17 @@ const contacts = [
   {icon: email, url: 'mailto:contact@fenotiana.dev'},
   {icon: skype, url: 'skype:live:fenny.etech?chat'},
   {icon: whatsapp, url: 'https://wa.me/261346411221'},
+];
+
+const menus: {label: string; link?: string}[] = [
+  {label: 'About me', link: '#about-me'},
+  {label: 'Services', link: '#services'},
+  {label: 'Skills', link: '#skills'},
+  {label: 'Projects', link: '#projects'},
+  {label: 'Certification', link: '#certification'},
+  {label: 'FAQ', link: '#faq'},
+  {label: 'Contact', link: '#contact'},
+  {label: 'Blog', link: '#blog'},
 ];
 
 export const loader = async ({request}: LoaderFunctionArgs) => {
@@ -112,6 +123,31 @@ export default function Index() {
 
   return (
     <main className="relative grid h-screen w-screen grid-cols-6 bg-cover bg-center bg-no-repeat lg:gap-8 lg:bg-landing-bg lg:p-12 lg:dark:bg-landing-bg-dark ">
+      <nav className="fixed flex-col lg:absolute right-0 top-10 z-10 max-w-10 overflow-hidden  flex items-center gap-4 rounded-full bg-background px-4 py-1  shadow-lg">
+        {menus.map(menu => (
+          <Link key={menu.label} to={menu.link || '#'}>
+            <Button variant="link"> {menu.label}</Button>
+          </Link>
+        ))}
+
+        <Toggle
+          checked={theme === 'light'}
+          onChange={handleChange}
+          screenReaderLabel="Dark mode"
+        />
+        <Select onValueChange={handleLanguageChange} value={language}>
+          <SelectTrigger className="[&>span]:text-xl w-16">
+            <SelectValue>{language.includes('fr') ? '🇫🇷' : '🏴󠁧󠁢󠁥󠁮󠁧󠁿'}</SelectValue>
+          </SelectTrigger>
+          <SelectContent className="min-w-0">
+            {languageOptions?.map(language => (
+              <SelectItem value={`${language.value}`} key={language.value}>
+                {language.icon}
+              </SelectItem>
+            ))}
+          </SelectContent>
+        </Select>
+      </nav>
       <div className="col-span-6 flex h-screen flex-col justify-center overflow-x-hidden overflow-y-scroll  px-8 bg-background lg:col-span-2 lg:h-full lg:rounded-lg lg:shadow-lg">
         <div className="flex flex-wrap items-center gap-8">
           <div className="relative overflow-hidden h-40 w-40 rounded-full shadow-md  bg-muted">
@@ -159,30 +195,6 @@ export default function Index() {
         </div>
       </div>
       <div className="relative col-span-6 h-full overflow-visible lg:col-span-4 lg:overflow-scroll lg:rounded-lg lg:backdrop-blur-lg lg:[&_section]:mb-8 lg:last:[&_section]:mb-0 ">
-        <nav className="sticky z-10 top-0 flex items-center gap-4 rounded-full bg-background px-4 py-1  lg:shadow-lg">
-          <Button>About me</Button>
-          <Button>Projects</Button>
-          <Button>Contact</Button>
-          <Button>Blog</Button>
-
-          <Toggle
-            checked={theme === 'light'}
-            onChange={handleChange}
-            screenReaderLabel="Dark mode"
-          />
-          <Select onValueChange={handleLanguageChange} value={language}>
-            <SelectTrigger className="[&>span]:text-xl w-16">
-              <SelectValue>{language.includes('fr') ? '🇫🇷' : '🏴󠁧󠁢󠁥󠁮󠁧󠁿'}</SelectValue>
-            </SelectTrigger>
-            <SelectContent className="min-w-0">
-              {languageOptions?.map(language => (
-                <SelectItem value={`${language.value}`} key={language.value}>
-                  {language.icon}
-                </SelectItem>
-              ))}
-            </SelectContent>
-          </Select>
-        </nav>
         <HelloWorld />
         <AboutMe />
         <Services />

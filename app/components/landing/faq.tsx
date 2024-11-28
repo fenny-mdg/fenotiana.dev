@@ -16,7 +16,7 @@ const faqs = Array.from({length: 10}).map((_, i) => ({
 export default function FAQ() {
   const {t} = useTranslation();
   return (
-    <Container className="!h-fit flex-col p-8">
+    <Container id="faq" className="!h-fit flex-col p-8">
       <Title>FAQ</Title>
 
       <Accordion type="multiple">

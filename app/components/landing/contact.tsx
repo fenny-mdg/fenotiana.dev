@@ -33,7 +33,7 @@ export default function Contact() {
   });
 
   return (
-    <Container className="!h-fit flex-col p-8">
+    <Container id="contact" className="!h-fit flex-col p-8">
       <Title>{t('contact.title')}</Title>
       <Form
         className="flex flex-col h-fit w-full flex-wrap"

@@ -8,7 +8,7 @@ import {ProjectCard} from '@/components/ui/project-card';
 export default function CaseStudies({projects}: {projects: MdxListItem[]}) {
   const {t} = useTranslation();
   return (
-    <Container className="!h-fit flex-col p-8">
+    <Container id="projects" className="!h-fit flex-col p-8">
       <Title>Case Studies</Title>
 
       <div className="flex flex-wrap justify-center gap-8 md:justify-start">
