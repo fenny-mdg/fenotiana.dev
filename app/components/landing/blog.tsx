@@ -13,7 +13,7 @@ export default function BlogSection({posts}: BlogSectionProps) {
   const {t} = useTranslation();
 
   return (
-    <Container className="!h-fit flex-col p-8">
+    <Container id="blog" className="!h-fit flex-col p-8">
       <Title>{t('blog.title')}</Title>
 
       <div className="flex flex-wrap justify-center gap-8 md:justify-start">

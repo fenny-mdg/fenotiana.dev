@@ -12,7 +12,7 @@ import {
 
 export default function Skills() {
   return (
-    <Container className="!h-fit flex-col p-8 gap-8">
+    <Container id="skills" className="!h-fit flex-col p-8 gap-8">
       <Title>Skills</Title>
 
       <SkillCard

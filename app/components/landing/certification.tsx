@@ -27,7 +27,7 @@ export default function Certification() {
   ];
 
   return (
-    <Container className="!h-fit flex-col p-8">
+    <Container id="certification" className="!h-fit flex-col p-8">
       <Title>Certification</Title>
 
       <div className="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3">
