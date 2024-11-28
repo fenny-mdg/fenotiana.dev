@@ -12,7 +12,7 @@ type SkillCardProps = {
 export const SkillCard = ({title, skills, leftPanel}: SkillCardProps) => {
   return (
     <Card>
-      <CardContent className="flex max-lg:flex-col lg:items-center pt-4 group p-0">
+      <CardContent className="flex max-lg:flex-col lg:items-center pt-4 group p-0 text-primary-foreground">
         <div className="relative w-full lg:w-1/2 shrink-0 [&>div]:w-16  [&>div]:h-16 h-48 lg:h-full flex items-center justify-center overflow-hidden lg:overflow-visible">
           {leftPanel}
         </div>

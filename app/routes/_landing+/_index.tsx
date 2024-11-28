@@ -25,7 +25,7 @@ import {
   SelectTrigger,
   SelectValue,
 } from '@/components/ui/select';
-import {useCallback, useState} from 'react';
+import {useCallback, useRef, useState} from 'react';
 import FAQ from '~/components/landing/faq';
 import Services from '~/components/landing/services';
 import Skills from '~/components/landing/skills';
@@ -37,6 +37,7 @@ import {Link, useLoaderData} from '@remix-run/react';
 import {getServerTimeHeader} from '~/utils/timing.server';
 import Certification from '~/components/landing/certification';
 import {Button} from '@/components/ui/button';
+import {StickyHeader} from '~/components/landing/header';
 
 const languageOptions: SelectProps['options'] = [
   {
@@ -120,10 +121,11 @@ export default function Index() {
       console.error(error);
     }
   };
+  const containerRef = useRef(null);
 
   return (
     <main className="relative grid h-screen w-screen grid-cols-6 bg-cover bg-center bg-no-repeat lg:gap-8 lg:bg-landing-bg lg:p-12 lg:dark:bg-landing-bg-dark ">
-      <nav className="fixed flex-col lg:absolute right-0 top-10 z-10 max-w-10 overflow-hidden  flex items-center gap-4 rounded-full bg-background px-4 py-1  shadow-lg">
+      {/* <nav className="fixed flex-col lg:absolute right-0 top-10 z-10 max-w-10 overflow-hidden  flex items-center gap-4 rounded-full bg-background px-4 py-1  shadow-lg">
         {menus.map(menu => (
           <Link key={menu.label} to={menu.link || '#'}>
             <Button variant="link"> {menu.label}</Button>
@@ -147,7 +149,9 @@ export default function Index() {
             ))}
           </SelectContent>
         </Select>
-      </nav>
+      </nav> */}
+      {/* <Header /> */}
+
       <div className="col-span-6 flex h-screen flex-col justify-center overflow-x-hidden overflow-y-scroll  px-8 bg-background lg:col-span-2 lg:h-full lg:rounded-lg lg:shadow-lg">
         <div className="flex flex-wrap items-center gap-8">
           <div className="relative overflow-hidden h-40 w-40 rounded-full shadow-md  bg-muted">
@@ -194,7 +198,11 @@ export default function Index() {
           ))}
         </div>
       </div>
-      <div className="relative col-span-6 h-full overflow-visible lg:col-span-4 lg:overflow-scroll lg:rounded-lg lg:backdrop-blur-lg lg:[&_section]:mb-8 lg:last:[&_section]:mb-0 ">
+      <div
+        ref={containerRef}
+        className="relative col-span-6 h-full overflow-visible lg:col-span-4 lg:overflow-scroll lg:rounded-lg lg:backdrop-blur-lg lg:[&_section]:mb-8 lg:last:[&_section]:mb-0 "
+      >
+        <StickyHeader containerRef={containerRef} />
         <HelloWorld />
         <AboutMe />
         <Services />

@@ -2,6 +2,100 @@
 @tailwind components;
 @tailwind utilities;
 
+@layer base {
+  :root {
+    --background: 208 50% 98%;
+    --foreground: 208 45% 15%;
+    --muted: 208 35% 90%;
+    --muted-foreground: 208 45% 15%;
+    --popover: 208 50% 98%;
+    --popover-foreground: 208 45% 15%;
+    --card: 208 50% 98%;
+    --card-foreground: 208 45% 15%;
+    --border: 208 40% 85%;
+    --input: 208 40% 85%;
+    --primary: 208 95% 40%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 208 35% 90%;
+    --secondary-foreground: 208 45% 15%;
+    --accent: 203 90% 45%;
+    --accent-foreground: 0 0% 100%;
+    --destructive: 5 85% 55%;
+    --destructive-foreground: 0 0% 100%;
+    --ring: 208 95% 40%;
+    --radius: 0.5rem;
+  }
+
+  .dark {
+    --background: 208 45% 7%;
+    --foreground: 208 50% 98%;
+    --muted: 208 35% 14%;
+    --muted-foreground: 208 50% 98%;
+    --popover: 208 45% 7%;
+    --popover-foreground: 208 50% 98%;
+    --card: 208 45% 7%;
+    --card-foreground: 208 50% 98%;
+    --border: 208 35% 18%;
+    --input: 208 35% 18%;
+    --primary: 208 95% 50%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 208 35% 14%;
+    --secondary-foreground: 208 50% 98%;
+    --accent: 203 90% 55%;
+    --accent-foreground: 0 0% 100%;
+    --destructive: 5 85% 55%;
+    --destructive-foreground: 0 0% 100%;
+    --ring: 208 95% 50%;
+  }
+}
+/* Electric frost */
+/* @layer base {
+  :root {
+    --background: 200 30% 99%;
+    --foreground: 200 50% 15%;
+    --muted: 200 25% 92%;
+    --muted-foreground: 200 50% 15%;
+    --popover: 200 30% 99%;
+    --popover-foreground: 200 50% 15%;
+    --card: 200 30% 99%;
+    --card-foreground: 200 50% 15%;
+    --border: 200 35% 85%;
+    --input: 200 35% 85%;
+    --primary: 195 90% 45%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 200 25% 92%;
+    --secondary-foreground: 200 50% 15%;
+    --accent: 190 85% 50%;
+    --accent-foreground: 0 0% 100%;
+    --destructive: 0 90% 60%;
+    --destructive-foreground: 0 0% 100%;
+    --ring: 195 90% 45%;
+    --radius: 0.5rem;
+  }
+
+  .dark {
+    --background: 200 50% 8%;
+    --foreground: 200 30% 99%;
+    --muted: 200 40% 15%;
+    --muted-foreground: 200 30% 99%;
+    --popover: 200 50% 8%;
+    --popover-foreground: 200 30% 99%;
+    --card: 200 50% 8%;
+    --card-foreground: 200 30% 99%;
+    --border: 200 40% 20%;
+    --input: 200 40% 20%;
+    --primary: 195 90% 55%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 200 40% 15%;
+    --secondary-foreground: 200 30% 99%;
+    --accent: 190 85% 60%;
+    --accent-foreground: 0 0% 100%;
+    --destructive: 0 90% 60%;
+    --destructive-foreground: 0 0% 100%;
+    --ring: 195 90% 55%;
+  }
+} */
+
 /* Sky */
 /* @layer base {
   :root {
@@ -50,7 +144,7 @@
   }
 } */
 
-@layer base {
+/* @layer base {
   :root {
     --background: 210 90% 92%;
     --foreground: 220 85% 25%;
@@ -95,7 +189,7 @@
     --destructive-foreground: 0 0% 100%;
     --ring: 210 65% 72%;
   }
-}
+} */
 
 /* @layer base {
   :root {
