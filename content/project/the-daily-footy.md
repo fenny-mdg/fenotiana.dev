@@ -1,15 +1,20 @@
 ---
 title: The daily footy
-date: 2024-09-12
-description:
+date: 2025-02-03
+description: 
   The Daily Footy is a platform that provides news, rumors, match results, and
   upcoming match schedules for various football leagues, including La Liga,
   Premier League, MLS, and the Saudi league.
-bannerImageUrl: https://raw.githubusercontent.com/fenny-mdg/images/main/funky-fusion-stack/screenshot.png
+categories:
+  - sport
 meta:
   keywords:
-    - remix
-    - tailwind
+    - football
+    - mercato
+    - soccer
+gradient: "linear-gradient(135deg, #6A11CB, #2575FC)"
+link: https://thedailyfooty.eu.org
+bannerImageUrl: https://raw.githubusercontent.com/fenny-mdg/images/main/funky-fusion-stack/screenshot.png
 ---
 
 - Overview: The Daily Footy is a platform that provides news, rumors, match
