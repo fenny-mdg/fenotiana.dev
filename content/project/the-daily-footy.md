@@ -231,7 +231,7 @@ bannerImageUrl: https://raw.githubusercontent.com/fenny-mdg/images/main/funky-fu
           >
             <div>Open live site</div>
           </a>
-          <div className="project-info-close" onClick={onClose}>
+          <div className="project-info-close">
             <strong className="desktop-only">Press </strong>
             <span className="project-info-esc">
               <strong>esc</strong>
