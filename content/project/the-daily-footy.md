@@ -18,23 +18,6 @@ bannerImageUrl: https://raw.githubusercontent.com/fenny-mdg/images/main/funky-fu
 ---
 
 <div className="project-item-info-wrap !block">
-      <div className="project-info-header">
-        <h3 className="project-heading">The daily footy</h3>
-        <p className="section-paragraph text-color-sec w-dyn-bind-empty"></p>
-      </div>
-      <img
-        height="1020"
-        loading="lazy"
-        width="1960"
-        src="#"
-        alt=""
-        className="project-mobile-img w-dyn-bind-empty"
-      />
-      <div className="project-info-header project-info-header--btn w-condition-invisible">
-        <a href="https://thedailyfooty.eu.org" target="_blank" className="project-cta w-inline-block">
-          <div>Open live site</div>
-        </a>
-      </div>
       <div className="project-rt w-richtext">
         <div className="w-embed">
           <div className="p-v-layout">
