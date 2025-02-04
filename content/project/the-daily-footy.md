@@ -39,7 +39,7 @@ bannerImageUrl: https://raw.githubusercontent.com/fenny-mdg/images/main/funky-fu
         <div className="w-embed">
           <div className="p-v-layout">
             <div className="p-v-layout-content">
-              <h3 className="project-heading">{name}</h3>
+              <h3 className="project-heading">The daily footy</h3>
               <div className="p-v-layout-desciption">
                 <p
                   className="section-paragraph text-color-sec"
