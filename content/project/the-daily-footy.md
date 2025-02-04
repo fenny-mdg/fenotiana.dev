@@ -31,4 +31,4 @@ bannerImageUrl: https://raw.githubusercontent.com/fenny-mdg/images/main/funky-fu
         className="project-mobile-img w-dyn-bind-empty"
       />
      
-    </div>
+</div>
