@@ -31,7 +31,7 @@ bannerImageUrl: https://raw.githubusercontent.com/fenny-mdg/images/main/funky-fu
         className="project-mobile-img w-dyn-bind-empty"
       />
       <div className="project-info-header project-info-header--btn w-condition-invisible">
-        <a href={link} target="_blank" className="project-cta w-inline-block">
+        <a href="https://thedailyfooty.eu.org" target="_blank" className="project-cta w-inline-block">
           <div>Open live site</div>
         </a>
       </div>
@@ -218,14 +218,14 @@ bannerImageUrl: https://raw.githubusercontent.com/fenny-mdg/images/main/funky-fu
       <div className="project-info-bottom">
         <div className="project-info-bottom-left">
           <div className="project-info-title-wrap">
-            <div className="project-info-bottom-title">{name}</div>
+            <div className="project-info-bottom-title">The Daily Footy</div>
             <div className="text-color-sec">2022</div>
           </div>
           <div>Webflow Development, Advanced Animations, Custom Code</div>
         </div>
         <div>
           <a
-            href={link}
+            href="https://thedailyfooty.eu.org"
             target="_blank"
             className="project-cta project-cta--bottom w-inline-block"
           >
